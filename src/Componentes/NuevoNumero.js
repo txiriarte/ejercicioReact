@@ -1,81 +1,83 @@
 import { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Container, Row, Col } from "react-bootstrap";
+// import './NuevoNumero.css'; // Estilos personalizados
 
 function NuevoNumero() {
-
     const [num_A, setNum_A] = useState('');
     const [num_B, setNum_B] = useState('');
     const [result, setResult] = useState('');
+    const [activeOperation, setActiveOperation] = useState(null);
 
-
-    const numaHandler = (event) => {
-        setNum_A(event.target.value);
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        if (name === 'num_A') {
+            setNum_A(value);
+        } else if (name === 'num_B') {
+            setNum_B(value);
+        }
     }
 
-    const numbHandler = (event) => {
-        setNum_B(event.target.value);
+    const calculate = (operation) => {
+        let res;
+        switch (operation) {
+            case 'suma':
+                res = parseFloat(num_A) + parseFloat(num_B);
+                break;
+            case 'resta':
+                res = parseFloat(num_A) - parseFloat(num_B);
+                break;
+            case 'producto':
+                res = parseFloat(num_A) * parseFloat(num_B);
+                break;
+            case 'division':
+                res = parseFloat(num_A) / parseFloat(num_B);
+                break;
+            default:
+                break;
+        }
+        setResult(res);
+        setActiveOperation(operation); // Establece la operación activa
     }
-
-    const suma = () => {
-        setResult(parseFloat(num_A) + parseFloat(num_B));
-    }
-
-    const resta = () => {
-        setResult(num_A - num_B);
-    }
-
-    const producto = () => {
-        setResult(num_A * num_B);
-    }
-
-    const division = () => {
-        setResult(num_A / num_B);
-    }
-
-
-
-    const submitHandler = (event) => {
-        // event.preventDefault();
-        // const numero = {
-        //     numa: numa,
-        //     numb: numb,
-        // }
-        // props.addNumero(numero);
-        setNum_A('');
-        setNum_B('');
-    }
-
-
 
     return (
-        // si no hay type="submit", formulario no se ejecuta
-        // en este caso solo se van activando las funciones de los botones
-        <div>
-        <Row>
-            <Col>
-                <label>Número A: </label>
-                <input type="number" onChange={numaHandler} />
+        <Container className="calculator">
+            <Row>
+                <Col>
+                    <input type="text" name="num_A" value={num_A} onChange={handleChange} className="form-control" placeholder="Número A" />
+                </Col>
 
-                <label>Número B: </label>
-                <input type="number" onChange={numbHandler} />
-            </Col>
-        </Row>
+                <Col>
+                    <input type="text" name="num_B" value={num_B} onChange={handleChange} className="form-control" placeholder="Número B" />
+                </Col>
+            </Row>
 
-        <Row>
-            <Button onClick={suma}>+</Button>
-            <Button onClick={resta}>-</Button>
-            <Button onClick={producto}>X</Button>
-            <Button onClick={division}>/</Button>
-        </Row>
+            <Row>
+                <Col>      
+                 {/* parece que no hace falta `${}`          */}
+                    <Button variant={activeOperation === 'suma' ? 'primary' : 'secondary'} onClick={() => calculate('suma')}>+</Button>
+                </Col>
 
-        <Row>
-            <label>Resultado: DE comp resultado {result} </label>
-        </Row>
-    </div>
+                <Col>                
+                    <Button variant={activeOperation === 'resta' ? 'primary' : 'secondary'} onClick={() => calculate('resta')}>-</Button>
+                </Col>
 
-    )
+                <Col>               
+                    <Button variant={activeOperation === 'producto' ? 'primary' : 'secondary'} onClick={() => calculate('producto')}>*</Button>
+                </Col>
 
+                <Col>                
+                    <Button variant={activeOperation === 'division' ? 'primary' : 'secondary'} onClick={() => calculate('division')}>/</Button>
+                </Col>
+
+            </Row>
+
+            <Row>
+                <Col>
+                    <input type="text" value={result} className="form-control" readOnly />
+                </Col>
+            </Row>
+        </Container>
+    );
 }
-
 
 export default NuevoNumero;
