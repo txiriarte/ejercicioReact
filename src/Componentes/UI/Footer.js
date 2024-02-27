@@ -3,9 +3,6 @@ function Footer() {
     return (
     
         <p>Mikel Iriarte</p>
-
-        
-
     )
 
 }
