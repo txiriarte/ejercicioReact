@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
-// import './NuevoNumero.css'; // Estilos personalizados
 
 function NuevoNumero() {
     const [num_A, setNum_A] = useState('');
@@ -40,40 +39,26 @@ function NuevoNumero() {
     }
 
     return (
-        <Container className="calculator">
+        <Container className="text-center">
             <Row>
                 <Col>
-                    <input type="text" name="num_A" value={num_A} onChange={handleChange} className="form-control" placeholder="Número A" />
-                </Col>
-
-                <Col>
-                    <input type="text" name="num_B" value={num_B} onChange={handleChange} className="form-control" placeholder="Número B" />
+                    <input className="mx-2"  type="number" name="num_A" value={num_A} onChange={handleChange}  placeholder="Número A" />
+                    <input className="mx-2" type="number" name="num_B" value={num_B} onChange={handleChange}  placeholder="Número B" />
                 </Col>
             </Row>
-
-            <Row>
+            {/* mt-3 margen top */}
+            <Row  className="mt-3">
                 <Col>      
-                 {/* parece que no hace falta `${}`          */}
-                    <Button variant={activeOperation === 'suma' ? 'primary' : 'secondary'} onClick={() => calculate('suma')}>+</Button>
+                    <Button className="mx-2"  variant={activeOperation === 'suma' ? 'primary' : 'secondary'} onClick={() => calculate('suma')}>+</Button>
+                    <Button className="mx-2" variant={activeOperation === 'resta' ? 'primary' : 'secondary'} onClick={() => calculate('resta')}>-</Button>
+                    <Button className="mx-2" variant={activeOperation === 'producto' ? 'primary' : 'secondary'} onClick={() => calculate('producto')}>*</Button>
+                    <Button className="mx-2" variant={activeOperation === 'division' ? 'primary' : 'secondary'} onClick={() => calculate('division')}>/</Button>
                 </Col>
-
-                <Col>                
-                    <Button variant={activeOperation === 'resta' ? 'primary' : 'secondary'} onClick={() => calculate('resta')}>-</Button>
-                </Col>
-
-                <Col>               
-                    <Button variant={activeOperation === 'producto' ? 'primary' : 'secondary'} onClick={() => calculate('producto')}>*</Button>
-                </Col>
-
-                <Col>                
-                    <Button variant={activeOperation === 'division' ? 'primary' : 'secondary'} onClick={() => calculate('division')}>/</Button>
-                </Col>
-
             </Row>
 
-            <Row>
+            <Row className="mt-3">
                 <Col>
-                    <input type="text" value={result} className="form-control" readOnly />
+                    <input type="number" value={result} readOnly />
                 </Col>
             </Row>
         </Container>
