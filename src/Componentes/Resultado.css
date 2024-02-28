@@ -1,0 +1,19 @@
+.resultado {
+    background-color: #f8f9fa; /* Color de fondo */
+    border: 3px solid #ced4da; /* Borde */
+    border-radius: 15px; /* Radio del borde, esquinas circularidad*/
+    padding: 10px; /* Espaciado interno */
+    margin-top: 20px; /* Margen superior */
+}
+
+.resultado h2 {
+    margin-bottom: 10px; /* Margen inferior para el título */
+}
+
+.resultado p {
+    /* Estilos para el texto dentro del elemento <p> */
+    font-size: 26px; /* Tamaño de fuente */
+    font-weight: bold; /* Peso de la fuente */
+    font-family: 'Roboto', sans-serif; /* sans-serif alternativa */
+    color: #333; /* Color del texto */
+}

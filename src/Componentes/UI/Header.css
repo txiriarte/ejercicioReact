@@ -1,0 +1,8 @@
+.header {
+    background-color: #343a40; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    font-size: 24px; /* Tamaño de fuente */
+    font-weight: bold; /* Peso de la fuente */
+}

@@ -1,10 +1,13 @@
+import './Footer.css';
 
-function Footer() {
+const Footer = () => {
+
     return (
-    
-        <p>Mikel Iriarte</p>
-    )
-
+        <div className="footer">
+            © 2024 Tu Calculadora
+        </div>
+    );
 }
-
+   
 export default Footer;
+

@@ -3,15 +3,16 @@ import './App.css';
 import Header from './Componentes/UI/Header';
 import Footer from './Componentes/UI/Footer';
 
-import NuevoNumero from './Componentes/NuevoNumero';
+import Calculadora from './Componentes/Calculadora';
 
 
-function App() {
+const App = () => {
+
   return (
     <>
       <Header />
 
-      <NuevoNumero />
+      <Calculadora/>
 
       <Footer />
     

@@ -1,0 +1,12 @@
+.footer {
+    background-color: #343a40; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    font-style: italic; /* Estilo de fuente cursiva */
+    position: fixed; /* Fijar el pie de página en la parte inferior */
+    width: 100%; /* Ancho completo */
+    bottom: 0; /* Pegar al fondo, determina position:fixed */
+    left: 0; /* Pegar a la izquierda */
+}

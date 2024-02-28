@@ -1,9 +1,10 @@
 import { Container } from "react-bootstrap";
+import './Header.css'; 
 
-function Header() {
+const Header = () => {
     return (
-        <Container className="text-center">
-            <h1>CALCULADORA</h1>
+        <Container className="header">
+            <h1>CALCULADORA REACT</h1>
         </Container>
     );
 }
